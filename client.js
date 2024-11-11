@@ -1,13 +1,28 @@
 const themes = {
     "green": {
         primary: 'rgb(35, 228, 99)',
-        secondary: '',
-        tertiary: '',
-        quaternary: '',
-    }
+        secondary: 'rgba(3, 240, 165, 0.5)',
+        tertiary: 'rgba(0, 166, 58, 0.5)',
+        quaternary: 'rgba(13, 239, 113, 0.5)',
+        quinary: 'rgba(3, 240, 165, 0.5)',
+    },
+    "purple": {
+        primary: 'rgb(154, 66, 255)',
+        secondary: 'rgba(128, 55, 212, 0.5)',
+        tertiary: 'rgba(148, 100, 204, 0.5)',
+        quaternary: 'rgba(100, 48, 161, 0.5)',
+        quinary: 'rgba(117, 0, 255, 0.5)',
+    },
 }
 
 let theme = "green"
+
+function setTheme(itheme) {
+    theme = itheme
+    document.documentElement.style.setProperty('--main-color',themes[theme].primary)
+}
+
+setTheme('green')
 
 function createBlobPattern() {
     const blobCanvas = document.createElement('canvas');
@@ -26,7 +41,7 @@ function createBlobPattern() {
         blobCtx.filter = 'none';
     }
 
-    const colors = ['rgba(3, 240, 165, 0.5)', 'rgba(0, 166, 58, 0.5)', 'rgba(13, 239, 113, 0.5)', 'rgba(3, 240, 165, 0.5)'];
+    const colors = [themes[theme].secondary, themes[theme].tertiary, themes[theme].quaternary, themes[theme].quinary];
     for (let i = 0; i < 100; i++) {
         const x = Math.random() * blobCanvas.width;
         const y = Math.random() * blobCanvas.height;
