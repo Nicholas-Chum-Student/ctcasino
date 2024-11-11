@@ -38,6 +38,7 @@ const cells = [];
 function cashOut() {
     balance += multi * bet;
     document.getElementById('betbtn').disabled = false
+    document.getElementById('maxbetbtn').disabled = false
     document.getElementById('cashout').disabled = true
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
 }
@@ -48,6 +49,7 @@ function generateMatch(ibet) {
     bet = ibet
     multi = 1
     document.getElementById('betbtn').disabled = true;
+    document.getElementById('maxbetbtn').disabled = true;
     document.getElementById('cashout').disabled = false
     document.getElementById
     document.querySelector('#grid > div').innerHTML = ''
