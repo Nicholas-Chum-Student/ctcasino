@@ -1,9 +1,20 @@
+const themes = {
+    "green": {
+        primary: 'rgb(35, 228, 99)',
+        secondary: '',
+        tertiary: '',
+        quaternary: '',
+    }
+}
+
+let theme = "green"
+
 function createBlobPattern() {
     const blobCanvas = document.createElement('canvas');
     blobCanvas.width = 300;
     blobCanvas.height = 300;
     const blobCtx = blobCanvas.getContext('2d');
-    blobCtx.fillStyle = "#06da7f";
+    blobCtx.fillStyle = themes[theme].primary;
     blobCtx.fillRect(0, 0, 300, 300);
 
     function drawBlob(x, y, radius, color) {
@@ -38,7 +49,7 @@ const cells = [];
 function cashOut() {
     balance += multi * bet;
     document.getElementById('betbtn').disabled = false
-    document.getElementById('maxbetbtn').disabled = false
+    document.getElementById('maxbetbtn').disabled = false;
     document.getElementById('cashout').disabled = true
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
 }
@@ -74,13 +85,13 @@ function generateMatch(ibet) {
             clicked++;
             cell[0].className = 'hide';
             cell[1].className = 'hide';
+            cell[0].onclick = null;
             multi = Math.round(Math.pow(clicked,1.05)*1000)/1000
             document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString()+'x - $'+Number((multi*bet).toFixed(2)).toLocaleString()
             if (cell[0].innerHTML.includes("$")) return;
             document.getElementById('matchstat').innerHTML = "0x - $0"
-            cashOut();
             multi = 0
-            clicked = 1
+            clicked = 0
             cells.forEach((cell) => {
                 cell[0].className = 'hide';
                 cell[1].className = 'hide';
@@ -88,10 +99,11 @@ function generateMatch(ibet) {
             });
             onclickFunctions = [];
             matchStarted = false;
+            cashOut();
         };
 
-        onclickFunctions.push(clickFunction); // Store the function
-        cell[0].onclick = clickFunction; // Assign the function as the onclick handler
+        onclickFunctions.push(clickFunction);
+        cell[0].onclick = clickFunction;
     });
 }
 
@@ -99,7 +111,7 @@ document.getElementById('cashout').onclick = function(){
     if (!matchStarted) return;
     cashOut();
     multi = 0
-    clicked = 1
+    clicked = 0
     cells.forEach((cell) => {
         cell[0].className = 'hide';
         cell[1].className = 'hide';
@@ -112,7 +124,7 @@ document.getElementById('cashout').onclick = function(){
 document.getElementById('betbtn').onclick = function()
 {
     let betam = Number(document.getElementById('betnum').value)
-    if (!betam || matchStarted || betam > balance) return;
+    if (!betam || matchStarted || betam < 0 || betam > balance) return;
     balance -= betam
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
     document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
@@ -121,7 +133,7 @@ document.getElementById('betbtn').onclick = function()
 
 document.getElementById('maxbetbtn').onclick = function()
 {
-    let betam = balance;
+    let betam = balance
     if (!betam || matchStarted || betam > balance) return;
     balance -= betam
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
