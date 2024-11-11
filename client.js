@@ -81,10 +81,14 @@ function generateMatch(ibet) {
     document.getElementById
     document.querySelector('#grid > div').innerHTML = '';
     let currentBombs = bombs;
+    let bombCoords = [];
+    for(let x = 0; x < currentBombs; x++){
+        bombCoords.push(Math.max(0, Math.min(36, Math.round(Math.random() * 36))));
+    }
     for (let i = 0; i < 36; i++) {
         let cell = document.createElement('div');
         cell.innerHTML = "$"
-        if (currentBombs > 0 && Math.random() < 0.1) {
+        if (currentBombs > 0 && bombCoords.includes(i)) {
             cell.innerHTML = "💣"
             currentBombs--;
         }
