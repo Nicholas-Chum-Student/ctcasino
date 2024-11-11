@@ -85,12 +85,13 @@ function generateMatch(ibet) {
             clicked++;
             cell[0].className = 'hide';
             cell[1].className = 'hide';
+            cell[0].onclick = null;
             multi = Math.round(Math.pow(clicked,1.05)*1000)/1000
             document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString()+'x - $'+Number((multi*bet).toFixed(2)).toLocaleString()
             if (cell[0].innerHTML.includes("$")) return;
             document.getElementById('matchstat').innerHTML = "0x - $0"
             multi = 0
-            clicked = 1
+            clicked = 0
             cells.forEach((cell) => {
                 cell[0].className = 'hide';
                 cell[1].className = 'hide';
@@ -110,7 +111,7 @@ document.getElementById('cashout').onclick = function(){
     if (!matchStarted) return;
     cashOut();
     multi = 0
-    clicked = 1
+    clicked = 0
     cells.forEach((cell) => {
         cell[0].className = 'hide';
         cell[1].className = 'hide';
