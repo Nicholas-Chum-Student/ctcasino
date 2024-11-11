@@ -76,6 +76,7 @@ function generateMatch(ibet) {
             document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString()+'x - $'+Number((multi*bet).toFixed(2)).toLocaleString()
             if (cell[0].innerHTML.includes("$")) return;
             document.getElementById('matchstat').innerHTML = "0x - $0"
+            cashOut();
             multi = 0
             clicked = 1
             cells.forEach((cell) => {
@@ -85,7 +86,6 @@ function generateMatch(ibet) {
             });
             onclickFunctions = [];
             matchStarted = false;
-            cashOut();
         };
 
         onclickFunctions.push(clickFunction); // Store the function
@@ -109,8 +109,8 @@ document.getElementById('cashout').onclick = function(){
 
 document.getElementById('betbtn').onclick = function()
 {
-    if (matchStarted || bet > balance) return;
     let betam = Number(document.getElementById('betnum').value)
+    if (!betam || matchStarted || betam > balance) return;
     balance -= betam
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
     document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
