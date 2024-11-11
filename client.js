@@ -59,6 +59,7 @@ let balance = 0
 let bet = 0
 let clicked = 1
 let onclickFunctions = [];
+const bombs = 3;
 const cells = [];
 
 function cashOut() {
@@ -66,7 +67,7 @@ function cashOut() {
     document.getElementById('betbtn').disabled = false
     document.getElementById('maxbetbtn').disabled = false;
     document.getElementById('cashout').disabled = true
-    document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
+    document.getElementById('cashmoney').innerHTML = '$' + Number(balance.toFixed(2)).toLocaleString()
 }
 
 function generateMatch(ibet) {
@@ -78,10 +79,15 @@ function generateMatch(ibet) {
     document.getElementById('maxbetbtn').disabled = true;
     document.getElementById('cashout').disabled = false
     document.getElementById
-    document.querySelector('#grid > div').innerHTML = ''
+    document.querySelector('#grid > div').innerHTML = '';
+    let currentBombs = bombs;
     for (let i = 0; i < 36; i++) {
         let cell = document.createElement('div');
-        cell.innerHTML = Math.random() < 0.1 ? "💣" : "$"
+        cell.innerHTML = "$"
+        if (currentBombs > 0 && Math.random() < 0.1) {
+            cell.innerHTML = "💣"
+            currentBombs--;
+        }
         let cvs = document.createElement('canvas');
         cvs.width = 100;
         cvs.height = 100;
@@ -93,7 +99,7 @@ function generateMatch(ibet) {
         cell.appendChild(cvs);
         document.querySelector('#grid > div').appendChild(cell);
 
-        cells.push([cell,cvs]);
+        cells.push([cell, cvs]);
     }
     cells.forEach((cell) => {
         const clickFunction = function () {
@@ -101,8 +107,8 @@ function generateMatch(ibet) {
             cell[0].className = 'hide';
             cell[1].className = 'hide';
             cell[0].onclick = null;
-            multi = Math.round(Math.pow(clicked,1.05)*1000)/1000
-            document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString()+'x - $'+Number((multi*bet).toFixed(2)).toLocaleString()
+            multi = Math.round(Math.pow(clicked, 1.05) * 1000) / 1000
+            document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString() + 'x - $' + Number((multi * bet).toFixed(2)).toLocaleString()
             if (cell[0].innerHTML.includes("$")) return;
             document.getElementById('matchstat').innerHTML = "0x - $0"
             multi = 0
@@ -122,7 +128,7 @@ function generateMatch(ibet) {
     });
 }
 
-document.getElementById('cashout').onclick = function(){
+document.getElementById('cashout').onclick = function () {
     if (!matchStarted) return;
     cashOut();
     multi = 0
@@ -136,23 +142,21 @@ document.getElementById('cashout').onclick = function(){
     matchStarted = false;
 };
 
-document.getElementById('betbtn').onclick = function()
-{
+document.getElementById('betbtn').onclick = function () {
     let betam = Number(document.getElementById('betnum').value)
     if (!betam || matchStarted || betam < 0 || betam > balance) return;
     balance -= betam
-    document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
-    document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
+    document.getElementById('cashmoney').innerHTML = '$' + Number(balance.toFixed(2)).toLocaleString()
+    document.getElementById('matchstat').innerHTML = "1x - $" + Number(betam.toFixed(2)).toLocaleString()
     generateMatch(betam)
 }
 
-document.getElementById('maxbetbtn').onclick = function()
-{
+document.getElementById('maxbetbtn').onclick = function () {
     let betam = balance
     if (!betam || matchStarted || betam > balance) return;
     balance -= betam
-    document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
-    document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
+    document.getElementById('cashmoney').innerHTML = '$' + Number(balance.toFixed(2)).toLocaleString()
+    document.getElementById('matchstat').innerHTML = "1x - $" + Number(betam.toFixed(2)).toLocaleString()
     generateMatch(betam)
 }
 
