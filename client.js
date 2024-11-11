@@ -38,6 +38,7 @@ const cells = [];
 function cashOut() {
     balance += multi * bet;
     document.getElementById('betbtn').disabled = false
+    document.getElementById('maxbetbtn').disabled = false
     document.getElementById('cashout').disabled = true
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
 }
@@ -48,6 +49,7 @@ function generateMatch(ibet) {
     bet = ibet
     multi = 1
     document.getElementById('betbtn').disabled = true;
+    document.getElementById('maxbetbtn').disabled = true;
     document.getElementById('cashout').disabled = false
     document.getElementById
     document.querySelector('#grid > div').innerHTML = ''
@@ -110,6 +112,16 @@ document.getElementById('cashout').onclick = function(){
 document.getElementById('betbtn').onclick = function()
 {
     let betam = Number(document.getElementById('betnum').value)
+    if (!betam || matchStarted || betam > balance) return;
+    balance -= betam
+    document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
+    document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
+    generateMatch(betam)
+}
+
+document.getElementById('maxbetbtn').onclick = function()
+{
+    let betam = balance;
     if (!betam || matchStarted || betam > balance) return;
     balance -= betam
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
