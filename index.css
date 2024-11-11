@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+:root {
+    --main-color: rgb(35, 228, 99);
+}
+
+
 * {
     font-family: Montserrat;
     user-select: none;
@@ -18,7 +23,7 @@ body {
 }
 
 h1 {
-    color: rgb(35, 228, 99);
+    color: var(--main-color);
 }
 
 #grid {
@@ -49,12 +54,12 @@ h1 {
     justify-content: center;
     font-size: 50px;
     font-weight: 700;
-    color: rgb(35, 228, 99);
+    color: var(--main-color);
     transition: 250ms;
 }
 
 #grid>div>div:hover {
-    box-shadow: 0px 0px 5px 5px rgb(41, 255, 137);
+    box-shadow: 0px 0px 5px 5px var(--main-color);
 }
 
 #grid>div>div>canvas {
@@ -102,7 +107,7 @@ div.hide {
 .row button {
     font-weight: 600;
     font-size: 16px;
-    background-color: rgb(0, 255, 98);
+    background-color: var(--main-color);
     outline: none;
     border: none;
     width: 30%;
@@ -111,7 +116,7 @@ div.hide {
 }
 
 .row button:hover {
-    background-color: rgb(88, 255, 152);
+    opacity: 0.9;
 }
 
 #winnings h3 {
@@ -134,5 +139,5 @@ input[type=number] {
 
 button:disabled {
     cursor: not-allowed;
-    background-color: rgb(55, 148, 101) !important;
+    background-color: rgb(92, 92, 92) !important;
 }
