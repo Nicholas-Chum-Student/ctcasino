@@ -123,7 +123,7 @@ document.getElementById('cashout').onclick = function(){
 document.getElementById('betbtn').onclick = function()
 {
     let betam = Number(document.getElementById('betnum').value)
-    if (!betam || matchStarted || betam > balance) return;
+    if (!betam || matchStarted || betam < 0 || betam > balance) return;
     balance -= betam
     document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
     document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
