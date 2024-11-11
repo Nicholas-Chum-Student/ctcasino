@@ -117,6 +117,16 @@ document.getElementById('betbtn').onclick = function()
     generateMatch(betam)
 }
 
+document.getElementById('maxbetbtn').onclick = function()
+{
+    let betam = balance;
+    if (!betam || matchStarted || betam > balance) return;
+    balance -= betam
+    document.getElementById('cashmoney').innerHTML = '$'+Number(balance.toFixed(2)).toLocaleString()
+    document.getElementById('matchstat').innerHTML = "1x - $"+Number(betam.toFixed(2)).toLocaleString()
+    generateMatch(betam)
+}
+
 generateMatch(100)
 
 /*
