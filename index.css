@@ -21,7 +21,7 @@ body {
     background-color: rgb(22, 22, 29);
 }
 
-h1 {
+h1, h2 {
     color: var(--main-color);
 }
 
@@ -139,4 +139,31 @@ input[type=number] {
 button:disabled {
     cursor: not-allowed;
     background-color: rgb(92, 92, 92) !important;
+}
+
+#themes {
+    width: 500px;
+    height: 80px;
+    margin-top: 40px;
+    background-color: rgb(34, 34, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+}
+
+#themes h2 {
+    position: absolute;
+    top: -52px;
+}
+
+#themes button {
+    border: none;
+    outline: none;
+    width: 60px;
+    height: 60px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
 }
