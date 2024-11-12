@@ -77,7 +77,7 @@ let matchStarted = false;
 let multi = 0
 let balance = 0
 let bet = 0
-let clicked = 1
+let clicked = 0
 let onclickFunctions = [];
 const bombs = 3;
 const cells = [];
@@ -131,12 +131,12 @@ function generateMatch(ibet) {
             cell[0].className = 'hide';
             cell[1].className = 'hide';
             cell[0].onclick = null;
-            multi = Math.round(Math.pow(clicked, 1.01) * 1000) / 1000
+            multi = Math.round(Math.pow(1.2,clicked) * 1000) / 1000
             document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString() + 'x - $' + Number((multi * bet).toFixed(2)).toLocaleString()
             if (cell[0].innerHTML.includes("$")) return;
             document.getElementById('matchstat').innerHTML = "0x - $0"
             multi = 0
-            clicked = 1
+            clicked = 0
             cells.forEach((cell) => {
                 cell[0].className = 'hide';
                 cell[1].className = 'hide';
@@ -156,7 +156,7 @@ document.getElementById('cashout').onclick = function () {
     if (!matchStarted) return;
     cashOut();
     multi = 0
-    clicked = 1
+    clicked = 0
     cells.forEach((cell) => {
         cell[0].className = 'hide';
         cell[1].className = 'hide';
