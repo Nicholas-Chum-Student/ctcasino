@@ -35,14 +35,11 @@ function adjustBrightness(rgb, amount) {
 let theme = ""
 
 function setTheme(itheme) {
-    theme = itheme;
-    document.documentElement.style.setProperty('--main-color', themes[theme]);
-    Array.from(document.getElementsByTagName('canvas')).forEach((cvs) => {
-        const cellCtx = cvs.getContext('2d');
-        cellCtx.fillStyle = createBlobPattern();
-        cellCtx.fillRect(0, 0, cvs.width, cvs.height);
-    });
+    theme = itheme
+    document.documentElement.style.setProperty('--main-color',themes[theme].primary)
 }
+
+setTheme('green')
 
 function createBlobPattern() {
     const blobCanvas = document.createElement('canvas');
