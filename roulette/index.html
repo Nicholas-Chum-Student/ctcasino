@@ -5,48 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roulette</title>
     <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.css"
+      integrity="sha512-gGkweS4I+MDqo1tLZtHl3Nu3PGY7TU8ldedRnu60fY6etWjQ/twRHRG2J92oDj7GDU2XvX8k6G5mbp0yCoyXCA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"
+      integrity="sha512-NgXVRE+Mxxf647SqmbB9wPS5SEpWiLFp5G7ItUNFi+GVUyQeP+7w4vnKtc2O/Dm74TpTFKXNjakd40pfSKNulg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <!--Wheel-->
-    <h1 id="cashmoney">$0</h1>
-    <div class="bet-grid">
-      <div class="grid-item zero">1<input type="radio"></div>
-      <div class="grid-item">2<input type="radio"></div>
-      <div class="grid-item">3<input type="radio"></div>
-      <div class="grid-item">4<input type="radio"></div>
-      <div class="grid-item">5<input type="radio"></div>
-      <div class="grid-item">6<input type="radio"></div>
-      <div class="grid-item">7<input type="radio"></div>
-      <div class="grid-item">8<input type="radio"></div>
-      <div class="grid-item">9<input type="radio"></div>
-      <div class="grid-item">10<input type="radio"></div>
-      <div class="grid-item">11<input type="radio"></div>
-      <div class="grid-item">12<input type="radio"></div>
-      <div class="grid-item">13<input type="radio"></div>
-      <div class="grid-item">14<input type="radio"></div>
-      <div class="grid-item">15<input type="radio"></div>
-      <div class="grid-item">16<input type="radio"></div>
-      <div class="grid-item">17<input type="radio"></div>
-      <div class="grid-item">18<input type="radio"></div>
-      <div class="grid-item">19<input type="radio"></div>
-      <div class="grid-item">20<input type="radio"></div>
-      <div class="grid-item">21<input type="radio"></div>
-      <div class="grid-item">22<input type="radio"></div>
-      <div class="grid-item">23<input type="radio"></div>
-      <div class="grid-item">24<input type="radio"></div>
-      <div class="grid-item">25<input type="radio"></div>
-      <div class="grid-item">26<input type="radio"></div>
-      <div class="grid-item">27<input type="radio"></div>
-      <div class="grid-item">28<input type="radio"></div>
-      <div class="grid-item">29<input type="radio"></div>
-      <div class="grid-item">30<input type="radio"></div>
-      <div class="grid-item">31<input type="radio"></div>
-      <div class="grid-item">32<input type="radio"></div>
-    </div>
-    <div id="bet" class="row">
-      <input type="number" placeholder="$0" id="betnum" />
-      <button id="betbtn">BET</button>
-      <button id="maxbetbtn">MAX BET</button>
+    <div class="container">
+      <h1 id="cashmoney">$0</h1>
+      <div class="bet-grid">
+        <div class="grid-item zero">
+          <span>0</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>1</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>2</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>3</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>4</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>5</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>6</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>7</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>8</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>9</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>10</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>11</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>12</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>13</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>14</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>15</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>16</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>17</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>18</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>19</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>20</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>21</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>22</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>23</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>24</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>25</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>26</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>27</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>28</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>29</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>30</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item">
+          <span>31</span>
+          <div class="chips"></div>
+        </div>
+      </div>
+      <!--<div id="bet" class="row">
+        <input type="number" placeholder="$0" id="betnum" />
+        <button id="betbtn">BET</button>
+        <button id="maxbetbtn">MAX BET</button>
+      </div>
+      -->
+      <div class="row large">
+        <div class="chips-container">
+          <div class="chip white"><h2>1</h2></div>
+          <div class="chip red"><h2>5</h2></div>
+          <div class="chip blue"><h2>10</h2></div>
+          <div class="chip green"><h2>25</h2></div>
+          <div class="chip black"><h2>50</h2></div>
+        </div>
+      </div>
     </div>
     <!--
       <div id="winnings" class="row">
@@ -90,8 +211,9 @@
         <li>30</li>
         <li>31</li>
       </ul>
-      <button class="spin">Spin</button>
+      <button class="spin" id="betbtn">Bet</button>
     </div>
+
     <script
       src="client.js"
       defer

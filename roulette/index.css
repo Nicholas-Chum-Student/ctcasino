@@ -17,8 +17,8 @@ body {
   background: rgb(22, 22, 29);
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-direction: row;
   overflow: hidden;
 }
 
@@ -45,6 +45,10 @@ h1 {
   padding: 0;
   margin: 0 10px;
   border-radius: 4px;
+}
+
+.row.large {
+  height:100px;
 }
 
 #bet input {
@@ -97,8 +101,7 @@ button:disabled {
   all: unset;
   background: rgb(26, 26, 26);
   aspect-ratio: 1 / 1;
-  width: 450px;
-  height: 450px;
+  width: 35vw;
   container-type: inline-size;
   direction: ltr;
   display: grid;
@@ -116,146 +119,14 @@ button:disabled {
   transform-origin: center right;
   padding: 1rem;
   width: 50cqi;
-
-  &:nth-of-type(1) {
-    --_idx: 1;
-  }
-
-  &:nth-of-type(2) {
-    --_idx: 2;
-  }
-
-  &:nth-of-type(3) {
-    --_idx: 3;
-  }
-
-  &:nth-of-type(4) {
-    --_idx: 4;
-  }
-
-  &:nth-of-type(5) {
-    --_idx: 5;
-  }
-
-  &:nth-of-type(6) {
-    --_idx: 6;
-  }
-
-  &:nth-of-type(7) {
-    --_idx: 7;
-  }
-
-  &:nth-of-type(8) {
-    --_idx: 8;
-  }
-
-  &:nth-of-type(9) {
-    --_idx: 9;
-  }
-
-  &:nth-of-type(10) {
-    --_idx: 10;
-  }
-
-  &:nth-of-type(11) {
-    --_idx: 11;
-  }
-
-  &:nth-of-type(12) {
-    --_idx: 12;
-  }
-
-  &:nth-of-type(13) {
-    --_idx: 13;
-  }
-
-  &:nth-of-type(14) {
-    --_idx: 14;
-  }
-
-  &:nth-of-type(15) {
-    --_idx: 15;
-  }
-
-  &:nth-of-type(16) {
-    --_idx: 16;
-  }
-
-  &:nth-of-type(17) {
-    --_idx: 17;
-  }
-
-  &:nth-of-type(18) {
-    --_idx: 18;
-  }
-
-  &:nth-of-type(19) {
-    --_idx: 19;
-  }
-
-  &:nth-of-type(20) {
-    --_idx: 20;
-  }
-
-  &:nth-of-type(21) {
-    --_idx: 21;
-  }
-
-  &:nth-of-type(22) {
-    --_idx: 22;
-  }
-
-  &:nth-of-type(23) {
-    --_idx: 23;
-  }
-
-  &:nth-of-type(24) {
-    --_idx: 24;
-  }
-
-  &:nth-of-type(25) {
-    --_idx: 25;
-  }
-
-  &:nth-of-type(26) {
-    --_idx: 26;
-  }
-
-  &:nth-of-type(27) {
-    --_idx: 27;
-  }
-
-  &:nth-of-type(28) {
-    --_idx: 28;
-  }
-
-  &:nth-of-type(29) {
-    --_idx: 29;
-  }
-
-  &:nth-of-type(30) {
-    --_idx: 30;
-  }
-
-  &:nth-of-type(31) {
-    --_idx: 31;
-  }
-
-  &:nth-of-type(32) {
-    --_idx: 32;
-  }
-
-  &:nth-of-type(33) {
-    --_idx: 33;
-  }
-
-  rotate: calc(360deg / var(--_items) * calc(var(--_idx) - 1));
+  --_idx:attr(data-idx);
   height: calc((2 * pi * 50cqi) / var(--_items));
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 
 .roulette-wheel>li:nth-child(1) {
   background: rgb(3, 173, 3);
+  color:white;
 }
 
 .roulette-wheel>li:nth-child(odd):not(.zero) {
@@ -269,6 +140,7 @@ button:disabled {
 
 .wheel-container {
   position: relative;
+  
 }
 
 button.spin {
@@ -302,9 +174,12 @@ button.spin::before {
 
 .bet-grid {
   display: grid;
-  grid-template-columns: repeat(8, calc(500px / 8));
-  grid-template-rows: repeat(4, calc(300px / 4));
+  grid-template-columns: repeat(8, calc(600px / 8));
+  grid-template-rows: repeat(4, calc(350px / 4));
   margin-bottom: 10px;
+  border-radius: 8px;
+  background:#22222c;
+  padding:0.5rem;
   border-radius: 8px;
 }
 
@@ -313,7 +188,11 @@ button.spin::before {
   background: rgb(34, 34, 44);
   margin: 2px;
   color: white;
-  
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position:relative;
 }
 
 .bet-grid>.grid-item:nth-child(odd):not(.zero) {
@@ -326,4 +205,84 @@ button.spin::before {
 
 .bet-grid>.grid-item.zero {
   background: rgb(3, 173, 3);
+}
+
+.bet-grid > .grid-item > span {
+  font-size: 2rem;
+  color:rgb(231, 231, 231);
+}
+
+.bet-grid > .grid-item > div.chips {
+  position:absolute;
+  height:100%;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:2rem;
+
+}
+
+.chips-container {
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.chip {
+  aspect-ratio: 1 / 1;
+  width:calc(600px / 8 - 16px);
+  height:calc(600px / 8 - 16px);
+  background:white;
+  border-radius: 100%;
+  cursor: pointer;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border:4px dashed black;
+  color:black;
+}
+
+.chip.red {
+  background:rgb(235, 26, 26);
+  border:4px dashed white;
+  color:white;
+}
+
+.chip.blue {
+  background:rgb(63, 63, 240);
+  border:4px dashed white;
+  color:white;
+}
+
+.chip.green {
+  background:rgb(20, 122, 20);
+  border:4px dashed white;
+  color:white;
+}
+
+.chip.black {
+  background:black;
+  border:4px dashed white;
+  color:white;
+}
+
+.gu-mirror {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  opacity: 0.9; /* Make it slightly transparent */
+  border: 1px solid #ddd; /* Optional: adds an outline */
+  cursor: grabbing; /* Show grabbing cursor */
+}
+
+.gu-transit {
+  opacity: 0.6; /* Optional: fades out the placeholder */
 }
