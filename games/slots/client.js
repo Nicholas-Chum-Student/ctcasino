@@ -16,21 +16,9 @@ function updateGradient(newY) {
   let percent = (newY / maxY) * 100;
   
   if (percent < 50) {
-    bar.style.background = `linear-gradient(
-      180deg, 
-      rgba(58, 58, 73, 0) ${percent}%, 
-      rgba(58, 58, 73, 1) ${percent}%, 
-      rgba(58, 58, 73, 1) 50%, 
-      rgba(58, 58, 73, 0) 50%
-    )`;
+    bar.style.background = `linear-gradient(180deg, rgba(58, 58, 73, 0) ${percent}%, rgba(58, 58, 73, 1) ${percent}%, rgba(58, 58, 73, 1) 50%, rgba(58, 58, 73, 0) 50%)`;
   } else {
-    bar.style.background = `linear-gradient(
-      180deg, 
-      rgba(58, 58, 73, 0) 50%, 
-      rgba(58, 58, 73, 1) 50%, 
-      rgba(58, 58, 73, 1) ${percent}%, 
-      rgba(58, 58, 73, 0) ${percent}%
-    )`;
+    bar.style.background = `linear-gradient(180deg, rgba(58, 58, 73, 0) 50%, rgba(58, 58, 73, 1) 50%, rgba(58, 58, 73, 1) ${percent}%, rgba(58, 58, 73, 0) ${percent}%)`;
   }
 }
 
