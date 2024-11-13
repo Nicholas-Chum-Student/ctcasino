@@ -13,11 +13,12 @@ var drake = dragula([...document.querySelectorAll(".chips"), document.querySelec
   removeOnSpill: true,
 });
 
-/*
+
 drake.on("drop", function (el, target, source, sibling) {
   bets = calculateBet();
+  balance = calculateBalance();
 });
-*/
+
 
 function wheelOfFortune(selector) {
   const node = document.querySelector(selector);
@@ -107,6 +108,14 @@ function calculateBet() {
   })
 
   return bets;
+}
+
+function calculateBalance() {
+  let _temp = balance;
+  Object.values(bets).forEach((item) => {
+    _temp -= item;
+  })
+  return _temp;
 }
 
 let wheelDOM = document.querySelector(".roulette-wheel")
