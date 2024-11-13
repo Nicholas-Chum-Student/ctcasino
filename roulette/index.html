@@ -9,17 +9,55 @@
   <body>
     <!--Wheel-->
     <h1 id="cashmoney">$0</h1>
+    <div class="bet-grid">
+      <div class="grid-item zero">1<input type="radio"></div>
+      <div class="grid-item">2<input type="radio"></div>
+      <div class="grid-item">3<input type="radio"></div>
+      <div class="grid-item">4<input type="radio"></div>
+      <div class="grid-item">5<input type="radio"></div>
+      <div class="grid-item">6<input type="radio"></div>
+      <div class="grid-item">7<input type="radio"></div>
+      <div class="grid-item">8<input type="radio"></div>
+      <div class="grid-item">9<input type="radio"></div>
+      <div class="grid-item">10<input type="radio"></div>
+      <div class="grid-item">11<input type="radio"></div>
+      <div class="grid-item">12<input type="radio"></div>
+      <div class="grid-item">13<input type="radio"></div>
+      <div class="grid-item">14<input type="radio"></div>
+      <div class="grid-item">15<input type="radio"></div>
+      <div class="grid-item">16<input type="radio"></div>
+      <div class="grid-item">17<input type="radio"></div>
+      <div class="grid-item">18<input type="radio"></div>
+      <div class="grid-item">19<input type="radio"></div>
+      <div class="grid-item">20<input type="radio"></div>
+      <div class="grid-item">21<input type="radio"></div>
+      <div class="grid-item">22<input type="radio"></div>
+      <div class="grid-item">23<input type="radio"></div>
+      <div class="grid-item">24<input type="radio"></div>
+      <div class="grid-item">25<input type="radio"></div>
+      <div class="grid-item">26<input type="radio"></div>
+      <div class="grid-item">27<input type="radio"></div>
+      <div class="grid-item">28<input type="radio"></div>
+      <div class="grid-item">29<input type="radio"></div>
+      <div class="grid-item">30<input type="radio"></div>
+      <div class="grid-item">31<input type="radio"></div>
+      <div class="grid-item">32<input type="radio"></div>
+    </div>
     <div id="bet" class="row">
       <input type="number" placeholder="$0" id="betnum" />
       <button id="betbtn">BET</button>
       <button id="maxbetbtn">MAX BET</button>
     </div>
-    <div id="winnings" class="row">
-      <h3 id="matchstat">1x - $100</h3>
-      <button id="cashout" disabled>CASH OUT</button>
-    </div>
-    <div class="row">
+    <!--
+      <div id="winnings" class="row">
+        <h3 id="matchstat">1x - $100</h3>
+        <button id="cashout" disabled>CASH OUT</button>
+      </div>
+      -->
+
+    <div class="wheel-container">
       <ul class="roulette-wheel">
+        <li class="zero">0</li>
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -35,8 +73,29 @@
         <li>13</li>
         <li>14</li>
         <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
       </ul>
+      <button class="spin">Spin</button>
     </div>
-    <script src="client.js"></script>
+    <script
+      src="client.js"
+      defer
+      onload="wheelOfFortune('.wheel-container')"
+    ></script>
   </body>
 </html>
