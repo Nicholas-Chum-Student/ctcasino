@@ -16,7 +16,7 @@ var drake = dragula([...document.querySelectorAll(".chips"), document.querySelec
 
 drake.on("drop", function (el, target, source, sibling) {
   bets = calculateBet();
-  balance = calculateBalance();
+  //balance = calculateBalance();
 });
 
 
@@ -37,6 +37,7 @@ function wheelOfFortune(selector) {
     if (animation) {
       animation.cancel(); // Reset the animation if it already exists
     }
+    balance = calculateBalance();
     canSpin = false;
 
     const randomAdditionalDegrees = Math.random() * 360 + 1800;
@@ -74,7 +75,12 @@ function wheelOfFortune(selector) {
       }
 
       const selectedItem = items[index];
-      console.log(Number(selectedItem.textContent));
+      const num = Number(selectedItem.textContent);
+      console.log(Object.keys(bets),num.toString());
+      if (Object.keys(bets).includes(num.toString())){
+        console.log("ding ding ding")
+      }
+
       bets = {};
       removeAllChips();
     };
