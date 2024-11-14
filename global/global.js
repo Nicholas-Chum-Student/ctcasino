@@ -20,8 +20,13 @@ if (G_balanceDOM) {
     G_balanceDOM.innerHTML = `$${Number(G_balance.toFixed(2)).toLocaleString()}`
 }
 
-window.addEventListener('pageshow', (event) => {
-    if (G_balanceDOM) {
-        G_balanceDOM.innerHTML = `$${Number(G_balance.toFixed(2)).toLocaleString()}`
-    }
+window.addEventListener('pageshow', () => {
+    const saved = localStorage.getItem('CTCFC_balance')
+    let G_balance = saved ? Number(saved) : 100
+});
+
+window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
+    const saved = localStorage.getItem('CTCFC_balance')
+    let G_balance = saved ? Number(saved) : 100
 });
