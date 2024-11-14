@@ -75,7 +75,6 @@ function createBlobPattern() {
 
 let matchStarted = false;
 let multi = 0
-let balance = 0
 let bet = 0
 let clicked = 0
 let onclickFunctions = [];
@@ -83,11 +82,10 @@ const bombs = 3;
 const cells = [];
 
 function cashOut() {
-    balance += multi * bet;
+    setBalance(G_balance + multi * bet)
     document.getElementById('betbtn').disabled = false
     document.getElementById('maxbetbtn').disabled = false;
     document.getElementById('cashout').disabled = true
-    document.getElementById('cashmoney').innerHTML = '$' + Number(balance.toFixed(2)).toLocaleString()
 }
 
 function generateMatch(ibet) {
@@ -168,33 +166,21 @@ document.getElementById('cashout').onclick = function () {
 
 document.getElementById('betbtn').onclick = function () {
     let betam = Number(document.getElementById('betnum').value)
-    if (!betam || matchStarted || betam < 0 || betam > balance) return;
-    balance -= betam
-    document.getElementById('cashmoney').innerHTML = '$' + Number(balance.toFixed(2)).toLocaleString()
+    if (!betam || matchStarted || betam < 0 || betam > G_balance) return;
+    setBalance(G_balance - betam)
     document.getElementById('matchstat').innerHTML = "1x - $" + Number(betam.toFixed(2)).toLocaleString()
     generateMatch(betam)
 }
 
 document.getElementById('maxbetbtn').onclick = function () {
-    let betam = balance
-    if (!betam || matchStarted || betam > balance) return;
-    balance -= betam
-    document.getElementById('cashmoney').innerHTML = '$' + Number(balance.toFixed(2)).toLocaleString()
+    let betam = G_balance
+    if (!betam || matchStarted || betam > G_balance) return;
+    setBalance(G_balance - betam)
     document.getElementById('matchstat').innerHTML = "1x - $" + Number(betam.toFixed(2)).toLocaleString()
     generateMatch(betam)
 }
 
 setTheme(startTheme)
-generateMatch(100)
-
-
-for (let child of document.getElementById('themes').children) {
-    if (child.tagName === 'BUTTON') {
-        child.onclick = function () {
-            setTheme(child.id)
-        }
-    }
-}
 
 /*
 let btn = document.createElement('button')
