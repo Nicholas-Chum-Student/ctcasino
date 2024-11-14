@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,24 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="/global/global.css">
     <script src="/global/global.js" defer></script>
+    <script>
+        if (window.location.hostname === "aaron-meier-student.github.io") {
+            document.write('<base href="/fake-casino/">');
+        } else {
+            document.write('<base href="/">');
+        }
+    </script>
 </head>
+
 <body>
-    <h1><font color="white" id="title1"></font><span id="title2"></span></h1>
+    <h1>
+        <font color="white" id="title1"></font><span id="title2"></span>
+    </h1>
     <main>
         <div id="allgames">
-            <i class="fa-solid fa-gamepad fa-lg"></i> <h2>All Games</h2>
-            <a href="/games/mines" target="_self">
+            <i class="fa-solid fa-gamepad fa-lg"></i>
+            <h2>All Games</h2>
+            <a href="/games/mines/" target="_self">
                 <h2>Mines</h2>
                 <h3>V1.0.0</h3>
             </a>
@@ -31,4 +43,5 @@
     </main>
     <script src="./client.js"></script>
 </body>
+
 </html>

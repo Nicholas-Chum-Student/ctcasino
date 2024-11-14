@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="/games/mines/index.css">
     <link rel="stylesheet" href="/global/global.css">
     <script src="/global/global.js" defer></script>
+    <script>
+        if (window.location.hostname === "aaron-meier-student.github.io") {
+            document.write('<base href="/fake-casino/">');
+        } else {
+            document.write('<base href="/">');
+        }
+    </script>
 </head>
 <body>
     <h1 id="G_balance"></h1>
