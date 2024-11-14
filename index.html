@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Gambling</title>
+    <title>Fake Casino</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./global/global.css">
+    <script src="./global/global.js" defer></script>
 </head>
+
 <body>
-    <h1 id="cashmoney">$0</h1>
-    <div id="bet" class="row">
-        <input type="number" placeholder="$0" id="betnum">
-        <button id="betbtn">BET</button>
-        <button id="maxbetbtn">MAX BET</button>
-    </div>
-    <div id="winnings" class="row">
-        <h3 id="matchstat">1x - $100</h3>
-        <button id="cashout" disabled>CASH OUT</button>
-    </div>
-    <div id="grid"><div></div></div>
-    <div id="themes">
-        <h2>Themes</h2>
-        <button id="green" style="background-color: rgb(35, 228, 99);"></button>
-        <button id="blue" style="background-color: rgb(0, 140, 255);"></button>
-        <button id="purple" style="background-color: rgb(151, 41, 255);"></button>
-        <button id="red" style="background-color: rgb(252, 45, 45);"></button>
-        <button id="orange" style="background-color: rgb(252, 121, 45);"></button>
-        <button id="yellow" style="background-color: rgb(255, 213, 0);"></button>
-        <button id="white" style="background-color: rgb(225, 225, 225);"></button>
-    </div>
-    <script src="./client.js" defer></script>
+    <h1>
+        <font color="white" id="title1"></font><span id="title2"></span>
+    </h1>
+    <main>
+        <div id="allgames">
+            <i class="fa-solid fa-gamepad fa-lg"></i>
+            <h2>All Games</h2>
+            <a href="./games/mines" target="_self">
+                <h2>Mines</h2>
+                <h3>V1.0.0</h3>
+            </a>
+            <a href="./games/slots" target="_self">
+                <h2>Slots</h2>
+                <h3>Soon...</h3>
+            </a>
+            <a>
+                <h2>Roulette</h2>
+                <h3>Soon...</h3>
+            </a>
+        </div>
+        <h2 id="G_balance"></h2>
+        <button id="resetMoney">RESET MONEY</button>
+    </main>
+    <script src="./client.js"></script>
 </body>
+
 </html>
