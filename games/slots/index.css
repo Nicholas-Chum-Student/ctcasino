@@ -48,3 +48,30 @@ h1, h2 {
     height: 200%;
     background: linear-gradient(180deg, rgba(58,58,73,1) 0%, rgba(58,58,73,1) 50%, rgba(58,58,73,0) 50%);
 }
+
+#screen {
+    display: flex;
+    top: 75px;
+    position: absolute;
+}
+
+#screen > div {
+    background-color: white;
+    width: 75px;
+    height: 150px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+#screen > div > div > div {
+    min-height: 50px;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
