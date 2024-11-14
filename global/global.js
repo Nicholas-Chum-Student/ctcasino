@@ -20,13 +20,8 @@ if (G_balanceDOM) {
     G_balanceDOM.innerHTML = `$${Number(G_balance.toFixed(2)).toLocaleString()}`
 }
 
-window.addEventListener('pageshow', () => {
-    const saved = localStorage.getItem('CTCFC_balance')
-    let G_balance = saved ? Number(saved) : 100
-});
-
-window.addEventListener('visibilitychange', () => {
-    if (document.visibilityState !== 'visible') return;
-    const saved = localStorage.getItem('CTCFC_balance')
-    let G_balance = saved ? Number(saved) : 100
+history.pushState(null, null, window.location.href);
+window.addEventListener('popstate', function () {
+  history.replaceState(null, null, window.location.href);
+  history.pushState(null, null, window.location.href);
 });

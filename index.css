@@ -49,9 +49,12 @@ main {
     margin: 5px;
     background-color: #1e1e29;
     cursor: pointer;
+    background-size: cover;
 }
 
 #allgames a h2 {
+    color: white;
+    text-shadow: #1e1e29 2px 2px 5px;
     position: absolute;
     width: 100%;
     text-align: center;
