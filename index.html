@@ -6,14 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Casino</title>
 
-    <script>
-        const basePath = (window.location.hostname === "aaron-meier-student.github.io") ? 'https://aaron-meier-student.github.io/fake-casino' : '/';
-        document.addEventListener('DOMContentLoaded', function() {
-            const base = document.createElement('base');
-            base.href = basePath;
-            document.head.appendChild(base);
-        });
-    </script>
+    <base href="/fake-casino">
 
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="/global/global.css">
