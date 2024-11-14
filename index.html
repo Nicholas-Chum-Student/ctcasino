@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Casino</title>
+
+    <script>
+        const basePath = (window.location.hostname === "aaron-meier-student.github.io") ? '/fake-casino/' : '/';
+        document.addEventListener('DOMContentLoaded', function() {
+            const base = document.createElement('base');
+            base.href = basePath;
+            document.head.appendChild(base);
+        });
+    </script>
+
+    <!-- External Stylesheets and Scripts -->
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="/global/global.css">
     <script src="/global/global.js" defer></script>
-    <script>
-        if (window.location.hostname === "aaron-meier-student.github.io") {
-            document.write('<base href="/fake-casino/">');
-        } else {
-            document.write('<base href="/">');
-        }
-    </script>
 </head>
 
 <body>
