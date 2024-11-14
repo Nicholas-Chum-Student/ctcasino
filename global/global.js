@@ -19,3 +19,9 @@ function setBalance(num) {
 if (G_balanceDOM) {
     G_balanceDOM.innerHTML = `$${Number(G_balance.toFixed(2)).toLocaleString()}`
 }
+
+window.addEventListener('pageshow', (event) => {
+    if (G_balanceDOM) {
+        G_balanceDOM.innerHTML = `$${Number(G_balance.toFixed(2)).toLocaleString()}`
+    }
+});
