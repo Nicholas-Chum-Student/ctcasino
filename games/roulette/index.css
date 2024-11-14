@@ -17,8 +17,8 @@ body {
   background: rgb(22, 22, 29);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: row;
+  justify-content: space-evenly !important;
+  flex-direction: row !important;
   overflow: hidden;
 }
 
@@ -48,7 +48,7 @@ h1 {
 }
 
 .row.large {
-  height:100px;
+  height: 100px;
 }
 
 #bet input {
@@ -119,14 +119,14 @@ button:disabled {
   transform-origin: center right;
   padding: 1rem;
   width: 50cqi;
-  --_idx:attr(data-idx);
+  --_idx: attr(data-idx);
   height: calc((2 * pi * 50cqi) / var(--_items));
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 }
 
 .roulette-wheel>li:nth-child(1) {
   background: rgb(3, 173, 3);
-  color:white;
+  color: white;
 }
 
 .roulette-wheel>li:nth-child(odd):not(.zero) {
@@ -140,7 +140,7 @@ button:disabled {
 
 .wheel-container {
   position: relative;
-  
+
 }
 
 button.spin {
@@ -175,11 +175,11 @@ button.spin::before {
 .bet-grid {
   display: grid;
   grid-template-columns: repeat(8, calc(600px / 8));
-  grid-template-rows: repeat(4, calc(350px / 4));
+  grid-template-rows: repeat(5, calc(400px / 5));
   margin-bottom: 10px;
   border-radius: 8px;
-  background:#22222c;
-  padding:0.5rem;
+  background: #22222c;
+  padding: 0.5rem;
   border-radius: 8px;
 }
 
@@ -188,11 +188,11 @@ button.spin::before {
   background: rgb(34, 34, 44);
   margin: 2px;
   color: white;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  position:relative;
+  position: relative;
 }
 
 .bet-grid>.grid-item:nth-child(odd):not(.zero) {
@@ -207,82 +207,133 @@ button.spin::before {
   background: rgb(3, 173, 3);
 }
 
-.bet-grid > .grid-item > span {
+.bet-grid>.grid-item>span {
   font-size: 2rem;
-  color:rgb(231, 231, 231);
+  color: rgb(231, 231, 231);
 }
 
-.bet-grid > .grid-item > div.chips {
-  position:absolute;
-  height:100%;
-  width:100%;
-  display:flex;
+.bet-grid>.grid-item>div.chips {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .container {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:2rem;
+  gap: 2rem;
 
 }
 
 .chips-container {
-  width:100%;
-  height:100%;
-  display:flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
 .chip {
   aspect-ratio: 1 / 1;
-  width:calc(600px / 8 - 16px);
-  height:calc(600px / 8 - 16px);
-  background:white;
+  width: calc(600px / 8 - 16px);
+  height: calc(600px / 8 - 16px);
+  background: white;
   border-radius: 100%;
   cursor: pointer;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border:4px dashed black;
-  color:black;
+  border: 4px dashed black;
+  color: black;
 }
 
 .chip.red {
-  background:rgb(235, 26, 26);
-  border:4px dashed white;
-  color:white;
+  background: rgb(235, 26, 26);
+  border: 4px dashed white;
+  color: white;
 }
 
 .chip.blue {
-  background:rgb(63, 63, 240);
-  border:4px dashed white;
-  color:white;
+  background: rgb(63, 63, 240);
+  border: 4px dashed white;
+  color: white;
 }
 
 .chip.green {
-  background:rgb(20, 122, 20);
-  border:4px dashed white;
-  color:white;
+  background: rgb(20, 122, 20);
+  border: 4px dashed white;
+  color: white;
 }
 
 .chip.black {
-  background:black;
-  border:4px dashed white;
-  color:white;
+  background: black;
+  border: 4px dashed white;
+  color: white;
 }
 
 .gu-mirror {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
-  opacity: 0.9; /* Make it slightly transparent */
-  border: 1px solid #ddd; /* Optional: adds an outline */
-  cursor: grabbing; /* Show grabbing cursor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Add shadow */
+  opacity: 0.9;
+  /* Make it slightly transparent */
+  border: 1px solid #ddd;
+  /* Optional: adds an outline */
+  cursor: grabbing;
+  /* Show grabbing cursor */
 }
 
 .gu-transit {
-  opacity: 0.6; /* Optional: fades out the placeholder */
+  opacity: 0.6;
+  /* Optional: fades out the placeholder */
+}
+
+.modal {
+  position:absolute;
+  height:100%;
+  width:100%;
+  left:0;
+  top:0;
+  display:none;
+  justify-content: center;
+  align-items: center;
+  z-index:2;
+  background:rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  padding:0.5rem;
+  background:rgb(34, 34, 44);
+  border-radius:8px;
+  width:33%;
+  height:33%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-content > h1 {
+  font-size: 4rem;
+  color:white;
+}
+
+.modal-content > h2 {
+  color:var(--main-color);
+}
+
+.modal-content > button {
+  padding:0.5rem;
+  background:var(--main-color);
+  border:none;
+  border-radius:8px;
+  font-size:1.25rem;
+  font-weight: 700;
+  color:rgb(34, 34, 44);
+  cursor: pointer;
 }

@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roulette</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="../../global/global.css" />
+    <script src="../../global/global.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.css"
@@ -20,9 +22,16 @@
     ></script>
   </head>
   <body>
+    <div class="modal">
+      <div class="modal-content">
+        <h2>You won!</h2>
+        <h1 id="modal-money">$100</h1>
+        <button onclick="toggleModal()">Close</button>
+      </div>
+    </div>
     <!--Wheel-->
     <div class="container">
-      <h1 id="cashmoney">$0</h1>
+      <h1 id="G_balance">$0</h1>
       <div class="bet-grid">
         <div class="grid-item zero">
           <span>0</span>
@@ -150,6 +159,14 @@
         </div>
         <div class="grid-item">
           <span>31</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item" style="grid-column: 1 / span 4">
+          <span>RED</span>
+          <div class="chips"></div>
+        </div>
+        <div class="grid-item" style="grid-column: 5 / span 4">
+          <span>BLACK</span>
           <div class="chips"></div>
         </div>
       </div>
