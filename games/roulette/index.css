@@ -195,11 +195,11 @@ button.spin::before {
   position: relative;
 }
 
-.bet-grid>.grid-item.red {
+.bet-grid>.grid-item:nth-child(odd):not(.zero) {
   background: rgb(253, 39, 39);
 }
 
-.bet-grid>.grid-item.black {
+.bet-grid>.grid-item:nth-child(even):not(.zero) {
   background: rgb(19, 19, 19);
 }
 
