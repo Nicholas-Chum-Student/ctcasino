@@ -221,27 +221,27 @@ function checkWins(arr) {
 
     if (Object.values(counts).length == 3) {
         if (Object.keys(counts).includes("7️⃣")) {
-            payoutMult = 5;
-        } else if (Object.keys(counts).includes("💸")) {
             payoutMult = 2.5;
+        } else if (Object.keys(counts).includes("💸")) {
+            payoutMult = 1.5;
         } else {
-            payoutMult = 0.85;
+            payoutMult = 0.1;
         }
     } else if (Object.values(counts).length == 2) {
         if (Object.keys(counts).includes("7️⃣")) {
             if (counts["7️⃣"] == 2) {
                 payoutMult = 25;
             } else {
-                payoutMult = 10;
+                payoutMult = 5;
             }
         } else if (Object.keys(counts).includes("💸")) {
             if (counts["💸"] == 2) {
-                payoutMult = 10;
-            } else {
                 payoutMult = 5;
+            } else {
+                payoutMult = 3;
             }
         } else {
-            payoutMult = 2;
+            payoutMult = 1.5;
         }
     }
     else if (Object.values(counts).length == 1) {
