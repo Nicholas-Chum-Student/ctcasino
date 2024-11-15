@@ -188,6 +188,8 @@ function onRenderStep() {
     if (speed == 0) {
         rolling = false;
         console.log(pickedEmojis);
+        setBalance(G_balance + Math.floor(checkWins(pickedEmojis) * 25));
+        console.log(`you won ${checkWins(pickedEmojis) * 25}`)
         slots.forEach((slot) => {
             let a = slot.children[6].innerHTML;
             let b = slot.children[7].innerHTML;
@@ -202,6 +204,59 @@ function onRenderStep() {
             });
         });
     }
+}
+
+function checkWins(arr) {
+    let payoutMult = 0.0;
+    // check how many copies of each emoji
+    let counts = {};
+    const emojis = [...new Set(defaultEmojis)];
+
+    emojis.forEach((item) => {
+        const count = arr.filter(value => value === item).length;
+        if (count > 0) {
+            counts[item] = count;
+        }
+    });
+
+    if (Object.values(counts).length == 3) {
+        if (Object.keys(counts).includes("7️⃣")) {
+            payoutMult = 5;
+        } else if (Object.keys(counts).includes("💸")) {
+            payoutMult = 2.5;
+        } else {
+            payoutMult = 0.85;
+        }
+    } else if (Object.values(counts).length == 2) {
+        if (Object.keys(counts).includes("7️⃣")) {
+            if (counts["7️⃣"] == 2) {
+                payoutMult = 25;
+            } else {
+                payoutMult = 10;
+            }
+        } else if (Object.keys(counts).includes("💸")) {
+            if (counts["💸"] == 2) {
+                payoutMult = 10;
+            } else {
+                payoutMult = 5;
+            }
+        } else {
+            payoutMult = 2;
+        }
+    }
+    else if (Object.values(counts).length == 1) {
+        if (Object.keys(counts).includes("7️⃣")) {
+            payoutMult = 100;
+        } else if (Object.keys(counts).includes("💸")) {
+            payoutMult = 50;
+        } else {
+            payoutMult = 10;
+        }
+    }
+
+    console.log(payoutMult, Object.values(counts).length);
+
+    return payoutMult;
 }
 
 function loop() {
