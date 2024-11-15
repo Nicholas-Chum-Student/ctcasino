@@ -137,7 +137,7 @@ function wheelOfFortune(selector) {
         }
 
       }
-      if (Object.keys(bets).includes(color.toString())) {
+      if (Object.keys(bets).includes(color)) {
         setBalance(
           (G_balance +=
             // this right here looks for the key for the
