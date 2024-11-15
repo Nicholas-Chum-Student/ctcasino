@@ -126,28 +126,30 @@ function wheelOfFortune(selector) {
 
       const selectedItem = items[index];
       const num = Number(selectedItem.textContent);
-      const color = window.getComputedStyle(selectedItem).background;
-      console.log(selectedItem, color, num);
+      const color = Object.keys(colors).find((key) => colors[key] === window.getComputedStyle(selectedItem).background.toString());
       let totalWin = 0;
       if (Object.keys(bets).includes(num.toString())) {
         setBalance((G_balance += 32 * bets[num]));
         totalWin += 32 * bets[num];
+        if (totalWin > 0) {
+          document.querySelector("#modal-money").textContent = `$${totalWin}`;
+          toggleModal();
+        }
+
       }
-      if (Object.values(bets).includes(color.toString())) {
+      if (Object.keys(bets).includes(color.toString())) {
         setBalance(
           (G_balance +=
             // this right here looks for the key for the
-            2 * bets[Object.keys(colors).find((key) => colors[key] === color)])
+            2 * bets[color])
         );
-        totalWin +=
-          2 * bets[Object.keys(colors).find((key) => colors[key] === color)];
-      }
-      if (totalWin > 0) {
-        document.querySelector("#modal-money").textContent = `$${totalWin}`;
-        if (document.querySelector(".modal").style.display == "none") {
+        totalWin += 2 * bets[color];
+        if (totalWin > 0) {
+          document.querySelector("#modal-money").textContent = `$${totalWin}`;
           toggleModal();
         }
       }
+
 
       bets = {};
       removeAllChips();
@@ -191,7 +193,6 @@ function calculateBet() {
 function calculateBalance() {
   let _temp = G_balance;
   Object.values(bets).forEach((item) => {
-    console.log(bets, item);
     _temp -= item;
   });
   return _temp;
@@ -205,5 +206,5 @@ for (let i = 0; i < wheelDOM.children.length; i++) {
 
 function toggleModal() {
   const modal = document.querySelector(".modal");
-  modal.style.display = modal.style.display == "none" ? "flex" : "none";
+  modal.style.display = window.getComputedStyle(modal).display == "none" ? "flex" : "none";
 }
