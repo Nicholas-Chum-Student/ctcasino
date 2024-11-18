@@ -78,6 +78,8 @@ let pickedEmojis = [];
 function rollSlots() {
     if (rolling) return;
     rolling = true;
+    const audio = document.getElementById('oggPlayer');
+    audio.play();
     pickedEmojis = [];
     speed = 1;
     loopc = 0;
@@ -219,7 +221,7 @@ function checkWins(arr) {
         }
     });
 
-    if (Object.values(counts).length == 3) {
+    if (Object.values(counts).length >= 3) {
         if (Object.keys(counts).includes("7️⃣")) {
             payoutMult = 2.5;
         } else if (Object.keys(counts).includes("💸")) {
