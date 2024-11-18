@@ -10,6 +10,9 @@ const themes = {
 
 const startTheme = 'green'
 
+const winaudio = document.getElementById('winPlayer');
+const loseaudio = document.getElementById('losePlayer');
+
 function parseRGB(rgbString) {
     const matches = rgbString.match(/rgb\((\d+), (\d+), (\d+)\)/);
     if (!matches) return null;
@@ -131,7 +134,12 @@ function generateMatch(ibet) {
             cell[0].onclick = null;
             multi = Math.round(Math.pow(1.2,clicked) * 1000) / 1000
             document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString() + 'x - $' + Number((multi * bet).toFixed(2)).toLocaleString()
-            if (cell[0].innerHTML.includes("$")) return;
+            if (cell[0].innerHTML.includes("$")) {
+                winaudio.currentTime = .1;
+                winaudio.play();
+                return;
+            }
+            loseaudio.play();
             document.getElementById('matchstat').innerHTML = "0x - $0"
             multi = 0
             clicked = 0
