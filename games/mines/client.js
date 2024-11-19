@@ -189,10 +189,10 @@ document.getElementById('maxbetbtn').onclick = function () {
 }
 
 setTheme(startTheme)
-
+/*
 let btn = document.createElement('button')
 btn.innerHTML = "DELETE BOMBS"
 document.getElementById('winnings').appendChild(btn)
 btn.onclick = function() {
     document.querySelectorAll('#grid>div>div').forEach((cell) => {if (cell.innerHTML.includes('💣')) cell.style.display = 'none';})
-}
+}*/
