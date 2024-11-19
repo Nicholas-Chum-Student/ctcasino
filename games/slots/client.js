@@ -74,11 +74,13 @@ document.addEventListener("mouseup", () => {
 let rolling = false;
 let speed = 1;
 let pickedEmojis = [];
+let betam = 25;
 
 function rollSlots() {
     if (rolling) return;
     rolling = true;
     const audio = document.getElementById('oggPlayer');
+    audio.currentTime = 0;
     audio.play();
     pickedEmojis = [];
     speed = 1;
@@ -86,7 +88,7 @@ function rollSlots() {
     slots.forEach((slot) => {
         pickedEmojis.push(slot.children[7].innerHTML);
     });
-    setBalance(G_balance - 25);
+    setBalance(G_balance - betam);
 }
 
 const slots = document.querySelectorAll("#screen > div > div");
@@ -190,8 +192,8 @@ function onRenderStep() {
     if (speed == 0) {
         rolling = false;
         console.log(pickedEmojis);
-        setBalance(G_balance + Math.floor(checkWins(pickedEmojis) * 25));
-        console.log(`you won ${checkWins(pickedEmojis) * 25}`)
+        setBalance(G_balance + Math.floor(checkWins(pickedEmojis) * betam));
+        console.log(`you won ${checkWins(pickedEmojis) * betam}`)
         slots.forEach((slot) => {
             let a = slot.children[6].innerHTML;
             let b = slot.children[7].innerHTML;
