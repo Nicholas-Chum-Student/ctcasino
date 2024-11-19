@@ -132,7 +132,7 @@ function generateMatch(ibet) {
             cell[0].className = 'hide';
             cell[1].className = 'hide';
             cell[0].onclick = null;
-            multi = Math.round(Math.pow(1.2,clicked) * 1000) / 1000
+            multi = Math.round(Math.pow(1.125,clicked) * 1000) / 1000
             document.getElementById('matchstat').innerHTML = Number(multi.toFixed(2)).toLocaleString() + 'x - $' + Number((multi * bet).toFixed(2)).toLocaleString()
             if (cell[0].innerHTML.includes("$")) {
                 winaudio.currentTime = .1;
@@ -190,11 +190,9 @@ document.getElementById('maxbetbtn').onclick = function () {
 
 setTheme(startTheme)
 
-/*
 let btn = document.createElement('button')
 btn.innerHTML = "DELETE BOMBS"
 document.getElementById('winnings').appendChild(btn)
 btn.onclick = function() {
     document.querySelectorAll('#grid>div>div').forEach((cell) => {if (cell.innerHTML.includes('💣')) cell.style.display = 'none';})
 }
-*/
