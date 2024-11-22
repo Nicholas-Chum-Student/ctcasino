@@ -19,9 +19,3 @@ function setBalance(num) {
 if (G_balanceDOM) {
     G_balanceDOM.innerHTML = `$${Number(G_balance.toFixed(2)).toLocaleString()}`
 }
-
-history.pushState(null, null, window.location.href);
-window.addEventListener('popstate', function () {
-  history.replaceState(null, null, window.location.href);
-  history.pushState(null, null, window.location.href);
-});

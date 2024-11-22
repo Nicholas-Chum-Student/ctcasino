@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Casino</title>
     <link rel="stylesheet" href="./index.css">
+
     <link rel="stylesheet" href="./global/global.css">
     <script src="./global/global.js" defer></script>
 </head>
-
 <body>
-    <h1>
-        <font color="white" id="title1"></font><span id="title2"></span>
-    </h1>
-    <main>
-        <div id="allgames">
-            <i class="fa-solid fa-gamepad fa-lg"></i>
-            <h2>All Games</h2>
-            <a href="./games/mines/" target="_self" style="background-image: url('./images/mines.webp');">
-                <h2>Mines</h2>
-                <h3>V1.0.0</h3>
-            </a>
-            <a href="./games/slots/" target="_self" style="background-image: url('./images/slots.webp');">
-                <h2>Slots</h2>
-                <h3>V1.0.0</h3>
-            </a>
-            <a href="./games/roulette/" target="_self" style="background-image: url('./images/roulette.webp');">
-                <h2>Roulette</h2>
-                <h3>V1.0.0</h3>
-            </a>
+    <nav>
+        <div id="header">
+            <div id="GIcon"></div>
+            <h2>Fake Casino</h2>
         </div>
-        <h2 id="G_balance"></h2>
-        <button id="resetMoney">RESET MONEY</button>
-    </main>
-    <script src="./client.js"></script>
+        <hr>
+        <button class="selected" --data-link="./Games/">
+            <div></div>
+            <i class="fa-solid fa-gamepad fa-2xl"></i>
+            <h2>All Games</h2>
+        </button>
+        <button --data-link="./Games/mines/">
+            <div></div>
+            <i class="fa-solid fa-land-mine-on fa-2xl"></i>
+            <h2>Mines</h2>
+        </button>
+        <button --data-link="./Games/slots/">
+            <div></div>
+            <i class="fa-solid fa-circle-dollar-to-slot fa-2xl"></i>
+            <h2>Slots</h2>
+        </button>
+        <button --data-link="./Games/roulette/">
+            <div></div>
+            <i class="fa-solid fa-dharmachakra fa-2xl"></i>
+            <h2>Roulette</h2>
+        </button>
+        <button --data-link="./Games/crash/">
+            <div></div>
+            <i class="fa-solid fa-rocket fa-2xl"></i>
+            <h2>Crash</h2>
+        </button>
+        <hr>
+    </nav>
+    <iframe src="./Games/" frameborder="0"></iframe>
+    <script src="./index.js"></script>
 </body>
-
 </html>
