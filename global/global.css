@@ -31,7 +31,7 @@ body {
 }
 
 #GIcon {
-    mask-image: url('../Images/Icon.png');
+    mask-image: url('../images/icon.png');
     mask-size: contain;
     background-color: var(--main-color);
 }
