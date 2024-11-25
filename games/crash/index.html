@@ -9,7 +9,16 @@
     <script src="../../global/global.js" defer></script>
 </head>
 <body>
-    
+    <div id="bet" class="row">
+        <input type="number" placeholder="$0" id="betnum" value="100">
+        <button id="betbtn">BET</button>
+        <button id="maxbetbtn">MAX BET</button>
+    </div>
+    <div id="winnings" class="row">
+        <h3 id="matchstat">1x - $0</h3>
+        <button id="cashout" disabled>CASH OUT</button>
+    </div>
+    <div id="grid"><div></div></div>
     <script src="./client.js" defer></script>
 </body>
 </html>
