@@ -269,3 +269,8 @@ function loop() {
 }
 
 requestAnimationFrame(loop);
+
+/*
+setInterval(rollSlots,10)
+setBalance(10000)
+*/
